@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 public class Person {
-	String name;
-	int age;
-	String gender;
+    String name;
+    int age;
+    String gender;
 }
