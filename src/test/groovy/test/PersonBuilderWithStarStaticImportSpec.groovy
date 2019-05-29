@@ -2,7 +2,7 @@ package test
 
 import spock.lang.Specification
 
-import static factory.PersonTestFactory.aPerson
+import static factory.PersonTestFactory.*
 
 class PersonBuilderWithStarStaticImportSpec extends Specification {
 
