@@ -1,26 +1,22 @@
 package test
 
+import factory.PersonTestFactory
 import spock.lang.Specification
 
-import static factory.PersonTestFactory.*
+import static factory.PersonTestFactory.aPerson
 
 class PersonSpec extends Specification {
-
-	private Person getPerson() {
-		aPerson().get()
-	}
 
 	def "person cannot be constructed via statically imported generated method"() {
 		when:
 			def person = aPerson().get()
 		then:
-			MissingMethodException e = thrown()
-			e.message.contains('test.PersonSpec.aPerson()')
+			notThrown(MissingMethodException)
 	}
 
 	def "person can be constructed 2"() {
 		given:
-			def person = factory.PersonTestFactory.aPerson().get()
+			def person = PersonTestFactory.aPerson().get()
 		expect:
 			person.name == 'John Doe'
 			person.age == 42
